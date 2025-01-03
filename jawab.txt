@@ -1,0 +1,61 @@
+1.	Selain FCFS, jelaskan secara singkat algoritma-algoritma CPU Scheduling lainnya!
+	Jawab:	Shortest Job First adalah CPU Scheduling berdasarkan Burst Time Process yang paling
+			singkat yang bersifat non-preemptive atau tidak bisa diinterupt oleh proses lain.
+			Lebih unggul dibandingkan FCFS berdasarkan waiting, response, dan turnaround timenya.
+			Namun terdapat kekurangan pada proses yang bersifat non-preemptive yaitu proses dengan
+			prioritas rendah mungkin tidak pernah berjalan bila terdapat proses dengan jumlah yang
+			banyak.
+			Shortest Remaining Time First adalah versi preemptive dari Shortest Job First (SJF).
+			Setiap burst time yg dihabiskan akan dibandingkan dengan arrival time proses yang ada.
+			Proses yang paling cepat selesai akan dikerjakan terlebih dahulu bila proses yang baru
+			lebih cepat maka proses yang sekarang akan diberhentikan sementara.
+			Round Robin adalah CPU Scheduling yang bersifat preemptive yang didasarkan untuk
+			menggantikan proses yang ada setiap beberapa milisecond yang berjalan proses akan 
+			digantikan dengan proses berikutnya dan proses sebelumnya akan ditaruh pada queue bila
+			terdapat sisa burst time.
+
+2.	Pada CPU Scheduling, dikenal istilah pre-emptive dan non pre-emptive. Jelaskan kedua istilah
+	tersebut dan kategorikan algoritma-algoritma yang Anda jelaskan di nomor 1 berdasarkan
+	sifat pre-emptivenya!
+	Jawab:	Preemptive, proses dapat diberhentikan oleh program dengan CPU Burst yang lebih pendek.
+			contoh: Round Robin dan SRTF (Shortest Remaining Time First)
+			Non-preemptive, proses yang sudah dikerjakan CPU tidak akan dapat diberhentikan kecuali
+			proses telah selesai.
+			contoh: FCFS, SJF (Shortest Job First)
+			
+3.	Ada beberapa algoritma CPU Scheduling yang tidak praktis (tidak mungkin digunakan untuk
+	melakukan CPU Scheduling yang nyata). Apa saja algoritma itu dan kenapa hal tersebut dapat
+	terjadi?
+	Hint: Bayangkan task merupakan program yang dijalankan pengguna. Apakah bisa semua program
+	mendaftarkan arrival time dan burst timenya ke CPU queue (bahkan sebelum program tersebut 
+	diklik).
+	Jawab:	FCFS dan SJF (Non-preemptive CPU Scheduling), hal ini dikarenakan dapat mengakibatkan
+			starvation kepada tugas yang pendek pada FCFS sedangkan pada SJF, suatu program harus
+			menebak burst time task secara keseluruhan dan mengurutkannya.
+
+4.	Terkait masalah pada nomor 3, apa solusi dari permasalahan tersebut?
+	Hint: Sifat pre-emptive.
+	Jawab:	Preemption scheduling, dengan mengubah suatu program menjadi preemptive, suatu program
+			lebih fleksibel sehingga mengurangi risiko suatu program mengalami starvation.
+			Adapun alasannya adalah tidak perlu menebak burst time secara menyeluruh. Hal ini 
+			dikarenakan suatu program akan berpindah ke burst time yang lebih sedikit pada 2 proses 
+			sehingga mengurangi beban CPU untuk memprediksi burst time yang dapat menghasilkan
+			penjadwalan yang kurang akurat.
+			
+5.	Pada algoritma round-robin, dikenal istilah quantum time. Apakah itu?
+	Jawab:	Waktu yang disediakan CPU untuk mengerjakan tugasnya bila waktu pada suatu proses ini 
+			telah tercapai maka suatu program akan berpindah ke program selanjutnya (preemptive).
+
+6.	Lakukan simulasi algoritma round-robin, Anda akan mendapatkan waktu waiting time,
+	response time, dan turnaround time yang lebih besar dari algoritma lain. Tetapi, round-robin
+	merupakan algoritma yang cukup baik untuk menyelesaikan suatu masalah. Masalah apakah
+	itu? Bagaimana bisa algoritma yang tidak efisien menyelesaikan masalah yang terjadi?
+	Hint: Bayangkan jika pada suatu queue, terdapat program yang penting dan harus segera
+	dijalankan, tetapi tidak mendapat giliran.
+	Jawab:	CPU Scheduling mengedepankan keadilan (fairness). Bila terdapat program penting dengan
+			burst time yang besar, program tersebut tidak akan berjalan dan CPU akan mendahulukan 
+			burst time yang lebih kecil seperti pada algoritma SJF atau SRTF. Namun dengan Round
+			Robin, Suatu program akan mendapatkan gilirannya terlepas dari burst timenya.
+			Namun, hal ini akan menyebabkan program terus bergantian sehingga waiting time setiap 
+			prosesnya lebih besar.
+			dikerjakan lebih besar
