@@ -1,8 +1,8 @@
   1. First-Come, First-Served (FCFS)
-File FCFS.c menerapkan CPU Scheduling di mana proses yang datang lebih awal akan dieksekusi terlebih dahulu. Kode ini menggunakan kombinasi array dua dimensi, threading, dan semaphore untuk mensimulasikan eksekusi proses secara sinkron. Berikut adalah deskripsi dan detail spesifik kode.
+     File FCFS.c menerapkan CPU Scheduling di mana proses yang datang lebih awal akan dieksekusi terlebih dahulu. Kode ini menggunakan kombinasi array dua dimensi, threading, dan semaphore untuk mensimulasikan eksekusi proses secara sinkron. Berikut adalah deskripsi dan detail spesifik kode.
 
   1.1 Input dan Persiapan Data
-Bagian awal program meminta pengguna untuk memasukkan jumlah proses dan informasi terkait setiap proses, yaitu Task ID, Arrival Time, Burst Time, dan Priority. Informasi ini disimpan dalam array dua dimensi arr, di mana setiap baris merepresentasikan satu proses:
+  Bagian awal program meminta pengguna untuk memasukkan jumlah proses dan informasi terkait setiap proses, yaitu Task ID, Arrival Time, Burst Time, dan Priority. Informasi ini disimpan dalam array dua dimensi arr, di mana setiap baris merepresentasikan satu proses:
 
 ```
 int arr[input][4]; // Array 2D untuk menyimpan proses
@@ -23,7 +23,7 @@ int compare(const void *a, const void *b) {
 ```
 
   1.2 Inisialisasi Semaphore dan Thread
-Setiap proses direpresentasikan oleh sebuah thread. Sinkronisasi antar-thread dilakukan menggunakan semaphore. Array semaphore print_semaphores diinisialisasi dengan nilai awal 0 untuk semua proses, kecuali proses pertama yang dilepas dengan sem_post.
+  Setiap proses direpresentasikan oleh sebuah thread. Sinkronisasi antar-thread dilakukan menggunakan semaphore. Array semaphore print_semaphores diinisialisasi dengan nilai awal 0 untuk semua proses, kecuali proses pertama yang dilepas dengan sem_post.
 
 ```
 print_semaphores = malloc((max_thread_id + 1) * sizeof(sem_t));
@@ -33,7 +33,7 @@ for (int i = 0; i < input; i++) {
 sem_post(&print_semaphores[arr[0][0]]);
 ```
   1.3 Fungsi Thread untuk Eksekusi Proses
-Setiap thread memproses satu proses sesuai waktu kedatangan dan burst time. Sinkronisasi dijamin dengan semaphore:
+  Setiap thread memproses satu proses sesuai waktu kedatangan dan burst time. Sinkronisasi dijamin dengan semaphore:
 
 ```
 void *thread(void *arg) {
