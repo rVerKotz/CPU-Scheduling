@@ -1,4 +1,4 @@
-  1. First-Come, First-Served (FCFS) <br>
+1. First-Come, First-Served (FCFS) <br>
 File FCFS.c menerapkan CPU Scheduling di mana proses yang datang lebih awal akan dieksekusi terlebih dahulu. Kode ini menggunakan kombinasi array dua dimensi, threading, dan semaphore untuk mensimulasikan eksekusi proses secara sinkron. Berikut adalah deskripsi dan detail spesifik kode.
 
   1.1 Input dan Persiapan Data<br>
