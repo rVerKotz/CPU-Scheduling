@@ -76,6 +76,8 @@ void *thread(void *arg) {
 ```
 
 1.4 Perhitungan Waktu <br>
-• Waiting Time (WT) dihitung berdasarkan waktu tunggu proses sebelum mulai dieksekusi.
-• Turnaround Time (TAT) dihitung sebagai selisih waktu dari kedatangan hingga selesai eksekusi.
-• Response Time (RT) dihitung sebagai waktu dari kedatangan hingga proses pertama kali mulai berjalan.
+<ul>
+  <li>Waiting Time (WT) dihitung berdasarkan waktu tunggu proses sebelum mulai dieksekusi.</li>
+  <li>Turnaround Time (TAT) dihitung sebagai selisih waktu dari kedatangan hingga selesai eksekusi.</li>
+  <li>Response Time (RT) dihitung sebagai waktu dari kedatangan hingga proses pertama kali mulai berjalan.</li>
+</ul>
