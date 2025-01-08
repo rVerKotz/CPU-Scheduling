@@ -1,7 +1,9 @@
-1. First-Come, First-Served (FCFS) <br>
-File FCFS.c menerapkan CPU Scheduling di mana proses yang datang lebih awal akan dieksekusi terlebih dahulu. Kode ini menggunakan kombinasi array dua dimensi, threading, dan semaphore untuk mensimulasikan eksekusi proses secara sinkron. Berikut adalah deskripsi dan detail spesifik kode.
+<h2>First-Come, First-Served (FCFS)</h2><br>
+<p>
+  File FCFS.c menerapkan CPU Scheduling di mana proses yang datang lebih awal akan dieksekusi terlebih dahulu. Kode ini menggunakan kombinasi array dua dimensi, threading, dan semaphore untuk mensimulasikan eksekusi proses secara sinkron. Berikut adalah deskripsi dan detail spesifik kode.
+</p>
 
-  1.1 Input dan Persiapan Data<br>
+1.1 Input dan Persiapan Data<br>
 Bagian awal program meminta pengguna untuk memasukkan jumlah proses dan informasi terkait setiap proses, yaitu Task ID, Arrival Time, Burst Time, dan Priority. Informasi ini disimpan dalam array dua dimensi arr, di mana setiap baris merepresentasikan satu proses:
 
 ```
@@ -22,7 +24,7 @@ int compare(const void *a, const void *b) {
 }
 ```
 
-  1.2 Inisialisasi Semaphore dan Thread <br>
+1.2 Inisialisasi Semaphore dan Thread <br>
 Setiap proses direpresentasikan oleh sebuah thread. Sinkronisasi antar-thread dilakukan menggunakan semaphore. Array semaphore print_semaphores diinisialisasi dengan nilai awal 0 untuk semua proses, kecuali proses pertama yang dilepas dengan sem_post.
 
 ```
@@ -32,7 +34,7 @@ for (int i = 0; i < input; i++) {
 }
 sem_post(&print_semaphores[arr[0][0]]);
 ```
-  1.3 Fungsi Thread untuk Eksekusi Proses <br>
+1.3 Fungsi Thread untuk Eksekusi Proses <br>
 Setiap thread memproses satu proses sesuai waktu kedatangan dan burst time. Sinkronisasi dijamin dengan semaphore:
 
 ```
@@ -73,7 +75,7 @@ void *thread(void *arg) {
 }
 ```
 
-  1.4 Perhitungan Waktu <br>
+1.4 Perhitungan Waktu <br>
 • Waiting Time (WT) dihitung berdasarkan waktu tunggu proses sebelum mulai dieksekusi.
 • Turnaround Time (TAT) dihitung sebagai selisih waktu dari kedatangan hingga selesai eksekusi.
 • Response Time (RT) dihitung sebagai waktu dari kedatangan hingga proses pertama kali mulai berjalan.
