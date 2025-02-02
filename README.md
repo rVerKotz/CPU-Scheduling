@@ -81,3 +81,79 @@ void *thread(void *arg) {
   <li>Turnaround Time (TAT) dihitung sebagai selisih waktu dari kedatangan hingga selesai eksekusi.</li>
   <li>Response Time (RT) dihitung sebagai waktu dari kedatangan hingga proses pertama kali mulai berjalan.</li>
 </ul>
+
+<h1>Dokumentasi Shortest Remaining Time First (SRTF) Scheduler</h1>
+    
+    <h2>Pendahuluan</h2>
+    <p>Program ini mengimplementasikan algoritma <strong>Shortest Remaining Time First (SRTF)</strong> menggunakan thread di C.</p>
+    
+    <h2>Struktur Program</h2>
+    <ul>
+        <li><strong>Fungsi <code>compare</code></strong>: Digunakan untuk mengurutkan tugas berdasarkan waktu burst.</li>
+        <pre><code>int compare(const void *a, const void *b) {
+    const int *arr1 = (const int *)a;
+    const int *arr2 = (const int *)b;
+    int sum1 = arr1[3] + arr1[4] + arr1[2];
+    int sum2 = arr2[3] + arr2[4] + arr2[2];
+    return sum1 - sum2;
+}</code></pre>
+        <li><strong>Fungsi <code>sort</code></strong>: Digunakan untuk mengurutkan array tugas berdasarkan ID.</li>
+        <pre><code>int sort(const void *a, const void *b) {
+    const int *arr1 = *(const int **)a;
+    const int *arr2 = *(const int **)b;
+    return arr1[0] - arr2[0];
+}</code></pre>
+        <li><strong>Fungsi <code>thread_func</code></strong>: Fungsi utama yang menangani eksekusi setiap thread.</li>
+        <pre><code>void *thread_func(void *arg) {
+    int *thread_data = (int *)arg;
+    pthread_mutex_lock(&mutex[thread_data[0]]);
+    for (int i = 0; i < 2; i++) {
+        newArr[ctr][i] = thread_data[i];
+    }
+    ... // Proses perhitungan dan eksekusi thread
+    pthread_exit(NULL);
+}</code></pre>
+        <li><strong>Fungsi <code>signal</code></strong>: Digunakan untuk memberi sinyal kondisi pada thread yang sedang menunggu.</li>
+        <pre><code>void signal() {
+    for (int j = 0; j < wait_count; j++) {
+        pthread_cond_signal(&cond[wait[j]]);
+    }
+}</code></pre>
+        <li><strong>Fungsi <code>main</code></strong>: Menginisialisasi data, membuat thread, dan menghitung waktu eksekusi.</li>
+        <pre><code>int main(void) {
+    printf("How many times: ");
+    scanf("%d", &input);
+    ... // Inisialisasi data dan eksekusi thread
+    return 0;
+}</code></pre>
+    </ul>
+    
+    <h2>Proses Eksekusi</h2>
+    <ol>
+        <li>Program meminta jumlah tugas dari pengguna.</li>
+        <li>Setiap tugas memiliki parameter tertentu yang dimasukkan oleh pengguna.</li>
+        <li>Tugas diurutkan berdasarkan prioritas menggunakan SRTF.</li>
+        <li>Thread dibuat untuk menangani eksekusi tugas.</li>
+        <li>Hasil eksekusi dihitung dan ditampilkan.</li>
+    </ol>
+    
+    <h2>Contoh Input dan Output</h2>
+    <h3>Input:</h3>
+    <pre>
+How many times: 3
+Task 1: 1 2 3 4
+Task 2: 2 1 2 3
+Task 3: 3 2 1 2
+    </pre>
+    
+    <h3>Output:</h3>
+    <pre>
+Thread 1: 1 2 3 4
+Thread 2: 2 1 2 3
+Thread 3: 3 2 1 2
+
+Average = 2.33 1.67 3.00
+    </pre>
+    
+    <h2>Kesimpulan</h2>
+    <p>Program ini mengimplementasikan SRTF menggunakan thread dan mutex untuk sinkronisasi proses. Waktu eksekusi dihitung dan dirata-ratakan untuk mendapatkan performa algoritma.</p>
