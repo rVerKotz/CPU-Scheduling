@@ -139,20 +139,11 @@ void *thread(void *arg) {
     
     <h2>Contoh Input dan Output</h2>
     <h3>Input:</h3>
-    <pre>
-How many times: 3
-Task 1: 1 2 3 4
-Task 2: 2 1 2 3
-Task 3: 3 2 1 2
+    <pre>How many times: 3<br/>Task 1: 1 2 3 4<br/>Task 2: 2 1 2 3<br/>Task 3: 3 2 1 2
     </pre>
     
     <h3>Output:</h3>
-    <pre>
-Thread 1: 1 2 3 4
-Thread 2: 2 1 2 3
-Thread 3: 3 2 1 2
-
-Average = 2.33 1.67 3.00
+    <pre>Thread 1: 1 2 3 4<br/>Thread 2: 2 1 2 3<br/>Thread 3: 3 2 1 2<br/>Average = 2.33 1.67 3.00
     </pre>
     
     <h2>Kesimpulan</h2>
