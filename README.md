@@ -82,12 +82,12 @@ void *thread(void *arg) {
   <li>Response Time (RT) dihitung sebagai waktu dari kedatangan hingga proses pertama kali mulai berjalan.</li>
 </ul>
 
-<h1>Dokumentasi Shortest Remaining Time First (SRTF) Scheduler</h1>
+<h1Shortest Remaining Time First (SRTF) Scheduler</h1>
     
-    <h2>Pendahuluan</h2>
-    <p>Program ini mengimplementasikan algoritma <strong>Shortest Remaining Time First (SRTF)</strong> menggunakan thread di C.</p>
+  <h2>Pendahuluan</h2>
+  <p>Program ini mengimplementasikan algoritma <strong>Shortest Remaining Time First (SRTF)</strong> menggunakan thread di C.</p>
     
-    <h2>Struktur Program</h2>
+  <h2>Struktur Program</h2>
     <ul>
         <li><strong>Fungsi <code>compare</code></strong>: Digunakan untuk mengurutkan tugas berdasarkan waktu burst.</li>
         <pre><code>int compare(const void *a, const void *b) {
@@ -110,7 +110,6 @@ void *thread(void *arg) {
     for (int i = 0; i < 2; i++) {
         newArr[ctr][i] = thread_data[i];
     }
-    ... // Proses perhitungan dan eksekusi thread
     pthread_exit(NULL);
 }</code></pre>
         <li><strong>Fungsi <code>signal</code></strong>: Digunakan untuk memberi sinyal kondisi pada thread yang sedang menunggu.</li>
@@ -123,12 +122,11 @@ void *thread(void *arg) {
         <pre><code>int main(void) {
     printf("How many times: ");
     scanf("%d", &input);
-    ... // Inisialisasi data dan eksekusi thread
     return 0;
 }</code></pre>
     </ul>
     
-    <h2>Proses Eksekusi</h2>
+  <h2>Proses Eksekusi</h2>
     <ol>
         <li>Program meminta jumlah tugas dari pengguna.</li>
         <li>Setiap tugas memiliki parameter tertentu yang dimasukkan oleh pengguna.</li>
@@ -137,14 +135,14 @@ void *thread(void *arg) {
         <li>Hasil eksekusi dihitung dan ditampilkan.</li>
     </ol>
     
-    <h2>Contoh Input dan Output</h2>
+  <h2>Contoh Input dan Output</h2>
     <h3>Input:</h3>
     <pre>How many times: 3<br/>Task 1: 1 2 3 4<br/>Task 2: 2 1 2 3<br/>Task 3: 3 2 1 2
     </pre>
     
-    <h3>Output:</h3>
+  <h3>Output:</h3>
     <pre>Thread 1: 1 2 3 4<br/>Thread 2: 2 1 2 3<br/>Thread 3: 3 2 1 2<br/>Average = 2.33 1.67 3.00
     </pre>
     
-    <h2>Kesimpulan</h2>
+  <h2>Kesimpulan</h2>
     <p>Program ini mengimplementasikan SRTF menggunakan thread dan mutex untuk sinkronisasi proses. Waktu eksekusi dihitung dan dirata-ratakan untuk mendapatkan performa algoritma.</p>
